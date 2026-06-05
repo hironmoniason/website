@@ -219,11 +219,17 @@ body{background:#04060C;overflow-x:hidden;font-family:Georgia,serif}
   pointer-events:none;
 }
 .nav-logo{
+  display:flex;align-items:center;gap:10px;
   color:rgba(255,255,255,0.85);
   font-size:0.88rem;letter-spacing:2.8px;
   text-transform:uppercase;
   text-shadow:0 1px 12px rgba(0,0,0,0.55);
   pointer-events:auto;
+}
+.nav-logo-img{
+  height:40px;width:auto;
+  border-radius:3px;object-fit:contain;
+  filter:drop-shadow(0 1px 10px rgba(0,0,0,0.7));
 }
 .nav-link{
   color:rgba(255,255,255,0.72);
@@ -279,13 +285,106 @@ body{background:#04060C;overflow-x:hidden;font-family:Georgia,serif}
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-3px)}
 }
+
+/* ── Social links in #final ── */
+.f-social{display:flex;gap:24px;align-items:center;margin-top:30px}
+.f-slink{
+  display:flex;align-items:center;gap:7px;
+  color:rgba(255,255,255,0.42);
+  font-family:Arial,sans-serif;font-size:0.65rem;
+  letter-spacing:1.8px;text-transform:uppercase;
+  text-decoration:none;
+  transition:color 0.3s;
+}
+.f-slink:hover{color:rgba(255,255,255,0.9)}
+.f-slink svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
+
+/* ── Contact section ── */
+#contact-section{
+  background:#04060C;
+  padding:100px 48px 88px;
+  display:flex;flex-direction:column;
+  align-items:center;text-align:center;
+  border-top:1px solid rgba(255,255,255,0.07);
+}
+.cs-eyebrow{
+  font-family:Arial,sans-serif;
+  font-size:0.68rem;letter-spacing:3.5px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.36);margin-bottom:20px;
+}
+.cs-title{
+  font-size:clamp(1.8rem,3.8vw,3rem);
+  font-weight:normal;color:#fff;
+  line-height:1.2;margin-bottom:14px;
+}
+.cs-sub{
+  font-family:Arial,sans-serif;
+  font-size:0.95rem;color:rgba(255,255,255,0.54);
+  max-width:440px;line-height:1.88;margin-bottom:50px;
+}
+.cs-form{
+  display:flex;flex-direction:column;
+  gap:12px;width:100%;max-width:380px;
+  margin-bottom:52px;
+}
+.cs-input{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.15);
+  color:#fff;font-family:Arial,sans-serif;
+  font-size:0.9rem;padding:13px 17px;
+  outline:none;border-radius:0;-webkit-appearance:none;
+  transition:border-color 0.3s,background 0.3s;
+}
+.cs-input::placeholder{color:rgba(255,255,255,0.26)}
+.cs-input:focus{
+  border-color:rgba(255,255,255,0.4);
+  background:rgba(255,255,255,0.06);
+}
+.cs-submit{
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,0.48);
+  color:#fff;font-family:Arial,sans-serif;
+  font-size:0.72rem;letter-spacing:2.5px;
+  text-transform:uppercase;
+  padding:14px 40px;cursor:pointer;
+  transition:background 0.35s,border-color 0.35s;
+  margin-top:4px;width:100%;
+}
+.cs-submit:hover{background:rgba(255,255,255,0.09);border-color:rgba(255,255,255,0.72)}
+.cs-success{
+  display:none;
+  font-family:Arial,sans-serif;font-size:0.88rem;
+  color:rgba(168,216,128,0.85);letter-spacing:1.2px;
+  padding:14px 0;
+}
+.cs-divider{width:44px;height:1px;background:rgba(255,255,255,0.1);margin-bottom:34px}
+.cs-social{display:flex;gap:28px;align-items:center}
+.cs-slink{
+  display:flex;align-items:center;gap:8px;
+  color:rgba(255,255,255,0.42);
+  font-family:Arial,sans-serif;font-size:0.65rem;
+  letter-spacing:1.8px;text-transform:uppercase;
+  text-decoration:none;transition:color 0.3s;
+}
+.cs-slink:hover{color:rgba(255,255,255,0.9)}
+.cs-slink svg{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+.cs-footer{
+  font-family:Arial,sans-serif;
+  font-size:0.62rem;letter-spacing:1.5px;
+  color:rgba(255,255,255,0.16);
+  margin-top:56px;text-transform:uppercase;line-height:2.2;
+}
 </style>
 </head>
 <body>
 
 <nav id="nav">
-  <span class="nav-logo">Sonar Asom</span>
-  <a href="#" class="nav-link">Plan Your Journey</a>
+  <div class="nav-logo">
+    <img src="SAJLogo.jpeg" alt="Sonar Asom" class="nav-logo-img">
+    <span>Sonar Asom</span>
+  </div>
+  <a href="#contact-section" class="nav-link">Plan Your Journey</a>
 </nav>
 
 <div id="jp">
@@ -347,13 +446,63 @@ body{background:#04060C;overflow-x:hidden;font-family:Georgia,serif}
         <div class="f-ctr-lbl">Conservation</div>
       </div>
     </div>
-    <a href="#" class="f-btn">Start Your Responsible Journey</a>
+    <a href="#contact-section" class="f-btn">Start Your Responsible Journey</a>
+    <div class="f-social">
+      <a href="#" class="f-slink">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a href="#" class="f-slink">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <a href="#" class="f-slink">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+    </div>
   </div>
 
   <div id="sh"><p class="sh-t">Scroll to Journey</p><div class="sh-l"></div></div>
 
 </div>
 </div>
+
+<section id="contact-section">
+  <p class="cs-eyebrow">Connect With Us</p>
+  <h2 class="cs-title">Begin Your Journey<br>With the Community</h2>
+  <p class="cs-sub">Share your details and our team will reach out to craft a responsible travel experience that supports the people and landscapes of North East India.</p>
+
+  <form class="cs-form" id="cs-form" novalidate>
+    <input class="cs-input" type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+    <input class="cs-input" type="email" name="email" placeholder="Email Address" autocomplete="email">
+    <input class="cs-input" type="tel" name="phone" placeholder="Phone Number (with country code)" autocomplete="tel">
+    <button class="cs-submit" type="submit">Send My Details</button>
+    <p class="cs-success" id="cs-success">Thank you — we will be in touch shortly.</p>
+  </form>
+
+  <div class="cs-divider"></div>
+
+  <div class="cs-social">
+    <a href="#" class="cs-slink">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="#" class="cs-slink">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a href="#" class="cs-slink">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      Instagram
+    </a>
+  </div>
+
+  <p class="cs-footer">
+    Sonar Asom Responsible Tourism Ventures Limited<br>
+    Assam &amp; North East India
+  </p>
+</section>
 
 <script>
 'use strict';
@@ -1024,6 +1173,33 @@ window.addEventListener('keydown',e=>{
 });
 
 requestAnimationFrame(loop);
+
+/* ── Contact form ── */
+(function(){
+  const form = document.getElementById('cs-form');
+  const success = document.getElementById('cs-success');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name  = form.querySelector('[name="name"]').value.trim();
+    const email = form.querySelector('[name="email"]').value.trim();
+    const phone = form.querySelector('[name="phone"]').value.trim();
+    if(!name || (!email && !phone)) {
+      form.querySelector('[name="name"]').style.borderColor = name ? '' : 'rgba(255,140,120,0.7)';
+      if(!email && !phone){
+        form.querySelector('[name="email"]').style.borderColor = 'rgba(255,140,120,0.7)';
+        form.querySelector('[name="phone"]').style.borderColor = 'rgba(255,140,120,0.7)';
+      }
+      return;
+    }
+    form.querySelectorAll('.cs-input').forEach(function(inp){ inp.style.display='none'; });
+    form.querySelector('.cs-submit').style.display='none';
+    success.style.display='block';
+  });
+  form.querySelectorAll('.cs-input').forEach(function(inp){
+    inp.addEventListener('input', function(){ inp.style.borderColor=''; });
+  });
+})();
 </script>
 </body>
 </html>
